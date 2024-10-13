@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Run Tests
-        run: ./test_script > test_results.txt
+        run: ./test_script.sh > test_results.txt
 
       - name: Upload Test Results
         if: ${{ always() }}
