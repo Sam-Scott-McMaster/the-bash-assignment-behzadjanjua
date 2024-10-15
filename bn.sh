@@ -88,37 +88,33 @@ rankNames() {
     fi
 }
 
-# Main function to process names from standard input based on specified gender
+# Main function to process names from a single line of standard input based on specified gender
 main() {
-    # If gender is 'b' or 'B', process both male and female names
-    if [[ $gender =~ ^[bB]$ ]]; 
-    then
-        while read -r name; 
+    while true; 
+    do
+        # Prompt the user for a line of names
+        read -r line
+        # Split the line into individual names using a loop
+        for name in $line; 
         do
             # Validate that the name contains only alphabetical characters
             if [[ "$name" =~ ^[a-zA-Z]+$ ]]; 
             then
-                rankNames "$name" "M" "$year"  # Check for male rank
-                rankNames "$name" "F" "$year"  # Check for female rank
+                if [[ $gender =~ ^[bB]$ ]]; 
+                then
+                    # If gender is both, check for both male and female ranks
+                    rankNames "$name" "M" "$year"  # Check for male rank
+                    rankNames "$name" "F" "$year"  # Check for female rank
+                else
+                    # For a single gender, only process that gender
+                    rankNames "$name" "$gender" "$year"
+                fi
             else
                 echo "Badly formatted name: $name" >&2
                 exit 3
             fi
         done
-    else
-        # For a single gender (male or female), only process that gender
-        while read -r name; 
-        do
-            # Validate that the name contains only alphabetical characters
-            if [[ "$name" =~ ^[a-zA-Z]+$ ]]; 
-            then
-                rankNames "$name" "$gender" "$year"
-            else
-                echo "Badly formatted name: $name" >&2
-                exit 3
-            fi
-        done
-    fi
+    done
 }
 
 # Check if the first argument is --help; if so, display help information and exit
