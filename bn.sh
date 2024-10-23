@@ -83,10 +83,10 @@ fi
 setFullGender() {
     if [[ $GENDER =~ ^[mM]$ ]]; 
     then
-        FULLGENDER="male"
+        FULLGENDER="males"
     elif [[ $GENDER =~ ^[fF]$ ]]; 
     then
-        FULLGENDER="female"
+        FULLGENDER="females"
     fi
 }
 
@@ -147,7 +147,7 @@ main() {
                     rankNames "$name" "$gender" "$year"
                 fi
             else
-                echo "Badly formatted name: $name" >&2
+                echo "Badly formatted assigned gender: $name" >&2
                 exit 3
             fi
         done
