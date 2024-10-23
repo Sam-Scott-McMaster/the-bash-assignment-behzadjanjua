@@ -1,11 +1,27 @@
 #!/bin/bash
+# Baby Names Utility Script
+# This script processes baby names by year and gender, checks their ranking, 
+# and outputs information about the ranking of names for the given year and gender.
+# Sam Scott, McMaster University, 2024
 
+# ###############################
 # Function to display usage information when arguments are incorrect
+# Globals: None
+# Arguments: None
+# Outputs: Displays usage information to stderr
+# Returns: N.A.
+################################
 usage() {
     echo "Usage: /bn.sh <year> <gender f|F|m|M|b|B>" >&2
 }
 
+# ###############################
 # Function to display help information, including version and argument details
+# Globals: None
+# Arguments: None
+# Outputs: Displays help information to stdout
+# Returns: N.A.
+################################
 help() {
     echo "bn: Baby Names Utility"
     echo "Version: 1.0.0"
@@ -54,7 +70,13 @@ then
     exit 4
 fi
 
+# ###############################
 # Function to determine the full gender description based on input
+# Globals: None
+# Arguments: $1 = gender (M or F)
+# Outputs: Sets the FULLGENDER variable
+# Returns: N.A.
+################################
 setFullGender() {
     if [[ $GENDER =~ ^[mM]$ ]]; 
     then
@@ -65,7 +87,13 @@ setFullGender() {
     fi
 }
 
+# ###############################
 # Function to find and print the rank of a specific name for a given year and gender
+# Globals: None
+# Arguments: $1 = name, $2 = gender, $3 = year
+# Outputs: Displays the rank of the name or error if not found
+# Returns: N.A.
+################################
 rankNames() {
     local FOUNDNAME=$1             # The name to search for
     local GENDER=$2                # Gender for the search (M or F)
@@ -89,7 +117,13 @@ rankNames() {
     fi
 }
 
+# ###############################
 # Main function to process names from a single line of standard input based on specified gender
+# Globals: year, gender
+# Arguments: None
+# Outputs: Processes names and prints ranking information for each
+# Returns: N.A.
+################################
 main() {
     while true; 
     do
