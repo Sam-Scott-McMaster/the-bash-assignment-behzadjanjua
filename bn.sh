@@ -1,8 +1,11 @@
 #!/bin/bash
 # Baby Names Utility Script
-# This script processes baby names by year and gender, checks their ranking, 
-# and outputs information about the ranking of names for the given year and gender.
-# Sam Scott, McMaster University, 2024
+# This script processes baby names data from a specific year and gender, validating user input for 
+# a year (1880-2022) and gender (f|F for female, m|M for male, b|B for both). It reads the 
+# corresponding file (us_baby_names/yob<year>.txt), checks the ranking of each name entered by the 
+# user, and outputs the rank or an error if the name is not found. The script handles common errors 
+# such as invalid inputs or missing data files, providing helpful usage and help messages. 
+# Behzad Janjua, 400516103, October 23rd 2024
 
 # ###############################
 # Function to display usage information when arguments are incorrect
@@ -125,10 +128,9 @@ rankNames() {
 # Returns: N.A.
 ################################
 main() {
-    while true; 
+    # Continuously read input line by line until EOF
+    while read line; 
     do
-        # Prompt the user for a line of names
-        read -r line
         # Split the line into individual names using a loop
         for name in $line; 
         do

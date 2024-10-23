@@ -10,6 +10,7 @@
 # Some example test cases are given. You should add more test cases.
 #
 # Sam Scott, McMaster University, 2024
+# Altered by Behzad Janjua
 
 
 # GLOBALS: tc = test case number, fails = number of failed cases
