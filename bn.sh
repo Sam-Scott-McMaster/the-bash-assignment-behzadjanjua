@@ -60,7 +60,8 @@ fi
 # Validate gender format using regex; if invalid, print an error and exit
 if ! [[ "$gender" =~ $gender_regex ]]; 
 then
-    echo "Invalid gender format. Accepted values are f, F, m, M, b, B." >&2
+    echo "Badly formatted assigned gender: $gender" 
+    echo "Usage: ./bn.sh <year> <gender f|F|m|M|b|B>" >&2
     usage
     exit 2
 fi
