@@ -83,10 +83,10 @@ fi
 setFullGender() {
     if [[ $GENDER =~ ^[mM]$ ]]; 
     then
-        FULLGENDER="males"
+        FULLGENDER="male"
     elif [[ $GENDER =~ ^[fF]$ ]]; 
     then
-        FULLGENDER="females"
+        FULLGENDER="female"
     fi
 }
 
