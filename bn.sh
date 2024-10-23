@@ -15,7 +15,7 @@
 # Returns: N.A.
 ################################
 usage() {
-    echo "Usage: ./bn.sh <year> <assigned gender f|F|m|M|b|B>" >&2
+    echo "Usage: ./bn.sh <year> <assigned gender: f|F|m|M|b|B>" >&2
 }
 
 # ###############################
