@@ -147,7 +147,7 @@ main() {
                     rankNames "$name" "$gender" "$year"
                 fi
             else
-                echo "Badly formatted assigned gender: $name" >&2
+                echo "Badly formatted name: $name" >&2
                 exit 3
             fi
         done

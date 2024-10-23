@@ -97,16 +97,16 @@ test './bn.sh 2022 F' 3 'Sam2' '' 'Badly formatted name: Sam2'
 
 # multi line error case #2
 test './bn.sh 1111 X' 2 '' '' 'Badly formatted assigned gender: X
-bn <year> <assigned gender: f|F|m|M|b|B>'
+Usage: ./bn.sh <year> <assigned gender: f|F|m|M|b|B>'
 
 # invalid year 
 test './bn.sh 3005 M' 4 '' '' 'No data for 3005'
 
 # zero argument error case
-test './bn.sh' 1 '' '' 'Usage: /bn.sh <year> <gender f|F|m|M|b|B>'
+test './bn.sh' 1 '' '' 'Usage: ./bn.sh <year> <gender f|F|m|M|b|B>'
 
 # boundary test
-test './bn.sh 2022 m' 0 'Jack' '2022: Jack ranked 15 out of 14255 males names.' '' 
+test './bn.sh 2022 m' 0 'Jack' '2022: Jack ranked 15 out of 14255 male names.' '' 
 
 # return code
 exit $fails
