@@ -15,7 +15,7 @@
 # Returns: N.A.
 ################################
 usage() {
-    echo "Usage: /bn.sh <year> <gender f|F|m|M|b|B>" >&2
+    echo "Usage: ./bn.sh <year> <gender f|F|m|M|b|B>" >&2
 }
 
 # ###############################
@@ -28,7 +28,7 @@ usage() {
 help() {
     echo "bn: Baby Names Utility"
     echo "Version: 1.0.0"
-    echo "Usage: bn <year> <gender f|F|m|M|b|B>"
+    echo "Usage: ./bn <year> <gender f|F|m|M|b|B>"
     echo "Arguments:"
     echo "  year: A four-digit integer year from 1880 to 2022."
     echo "  gender: f|F for female, m|M for male, b|B for both."
